@@ -4,5 +4,9 @@ public class Main {
         //sysout 아니라 sout
         //sout 탭
         System.out.println("HI");
+        System.out.println("HI");
+        System.out.println("HI");
+        System.out.println("HI");
+        System.out.println("HI");
     }
 }
