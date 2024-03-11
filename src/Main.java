@@ -6,6 +6,8 @@ public class Main {
         System.out.println("yeah");
 
         System.out.println("second branch");
+
+        System.out.println("master");
     }
 
 }
