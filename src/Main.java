@@ -4,6 +4,8 @@ public class Main {
         System.out.println("HI11");
 
         System.out.println("yeah");
+
+        System.out.println("second branch");
     }
 
 }
