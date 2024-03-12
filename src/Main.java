@@ -1,15 +1,39 @@
+import java.util.ArrayList;
+
 public class Main {
     // main 입력하고 탭
     public static void main(String[] args) {
-        System.out.println("HI11");
 
-        System.out.println("yeah");
+    }
 
-        System.out.println("second branch");
+    static void setRemainDays(ArrayList<Integer> roomRemainDays) {
+        for (int num = 0; num < roomRemainDays.size(); num++) {
+            if (roomRemainDays.get(num) == 0) continue;
+            roomRemainDays.set(num, roomRemainDays.get(num) - 1);
+        }
+    }
 
-        System.out.println("master");
+    class Point {
+        int x;
+        int y;
 
-        System.out.println("umm");
+        void print() {
+            System.out.println(x + " " + y);
+        }
+    }
+
+    class drawMachine {
+        ArrayList<Point> points = new ArrayList<>();
+
+        void addPoint(Point p) {
+            points.add(p);
+        }
+
+        void drawPoints() {
+            for (Point p : points) {
+                p.print();
+            }
+        }
     }
 
 }
