@@ -1,22 +1,37 @@
 import java.util.ArrayList;
 
-public class Main {
-    public static class Marin {
-        int hp = 100;
-        void run() {
-            hp -= 10;
-            System.out.println("RUN " + hp);
-        }
-    }
-    // main 입력하고 탭
+class Zergling {
+    int hp, mana;
 
+    Zergling() { // 생성자
+        hp = 80;
+        mana = 200;
+    }
+
+    void attack() {
+        hp += 1;
+        mana -= 10;
+    }
+
+    void move() {
+        hp -= 10;
+        mana += 5;
+    }
+
+    void status() {
+        System.out.println(hp + " " + mana);
+    }
+
+}
+
+public class Main {
     public static void main(String[] args) {
-        Marin m1 = new Marin();
-        System.out.println(m1.hp);
-        m1.run();
-        m1.run();
-        m1.run();
-        m1.run();
-        m1.run();
+        Zergling z1 = new Zergling();
+        Zergling z2 = new Zergling();
+
+        z1.attack();
+        z2.move();
+        z1.status();
+        z2.status();
     }
 }
