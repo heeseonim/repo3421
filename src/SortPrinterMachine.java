@@ -19,8 +19,8 @@ class BubbleSort implements SortType {
         }
     }
 }
-
 class SelectionSort implements SortType {
+
     @Override
     public void run(ArrayList<Integer> lst) {
         for(int i = 0 ; i < lst.size(); i++) {
@@ -34,44 +34,45 @@ class SelectionSort implements SortType {
         }
     }
 }
-public class SortPrinter {
-    public SortType st;
-    public static ArrayList<Integer> lst = new ArrayList<>();
 
-    public static void main(String[] args) {
-        SortPrinter sp = new SortPrinter();
-        for (int i = 10; i > 0; i--) {
-            sp.insert(i);
-        }
+interface Printer {
+    void insert(ArrayList<Integer> lst);
+    void show();
+}
+class SortPrinter implements Printer {
+    ArrayList<Integer> lst;
+    SortType st;
 
-        sp.selection(new BubbleSort());
-        System.out.println("before"); sp.show();
-        sp.run();
-        System.out.println("after"); sp.show();
-
-        System.out.println("\n");
-        lst.clear();
-        for (int i = 10; i > 0; i--) {
-            sp.insert(i);
-        }
-
-        sp.selection(new SelectionSort());
-        System.out.println("before"); sp.show();
-        sp.run();
-        System.out.println("after"); sp.show();
+    @Override
+    public void insert(ArrayList<Integer> lst) {
+        this.lst = lst;
     }
-
-    public void insert(int num) {
-        lst.add(num);
-    }
-    public void selection(SortType type) {
-        st = type;
-    }
-    public void run() {
-        st.run(lst);
-    }
-
+    @Override
     public void show() {
         System.out.println(Arrays.toString(lst.toArray()));
+    }
+    public void selection(SortType st) { // Sort 할당
+        this.st = st;
+    }
+    public void run() { // Sort run 함수 호출
+        st.run(lst);
+    }
+}
+
+public class SortPrinterMachine { // Main
+    public static void main(String[] args) {
+        SortPrinter sp = new SortPrinter();
+        ArrayList<Integer> lst1 = new ArrayList<>(Arrays.asList(3,5,4,1,6,7,9));
+        ArrayList<Integer> lst2 = new ArrayList<>(Arrays.asList(7,5,10,4,1,2,6));
+
+        sp.insert(lst1);
+        sp.selection(new BubbleSort());
+        sp.run();
+        sp.show();
+
+        sp.insert(lst2);
+        sp.selection(new SelectionSort());
+        sp.run();
+        sp.show();
     }
 }
