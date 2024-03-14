@@ -1,11 +1,23 @@
-package ISP;
+package ISP.Step1;
 
-public class Eagle implements Bird{
+import ISP.Flyable;
+
+public class Eagle implements Bird, Flyable { // 두 인터페이스 사용
     String currentLocation;
     int numberOfFeathers;
 
     public Eagle(int initialFeatherCount) {
         this.numberOfFeathers = initialFeatherCount;
+    }
+
+    @Override
+    public void sing() {
+
+    }
+
+    @Override
+    public void eat() {
+
     }
 
     @Override

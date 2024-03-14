@@ -1,6 +1,6 @@
-package ISP;
+package ISP.Step1;
 
-public class Penguin implements Bird{
+public class Penguin implements Bird { // Bird만 사용
     String currentLocation;
     int numberOfFeathers;
 
@@ -9,16 +9,25 @@ public class Penguin implements Bird{
     }
 
     @Override
-    public void fly() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public void molt() {
         this.numberOfFeathers -= 1;
     }
 
+    @Override
+    public void sing() {
+
+    }
+
+    @Override
+    public void eat() {
+
+    }
+
     public void swim() {
         this.currentLocation = "in the water";
+    }
+
+    public void cry() {
+
     }
 }
