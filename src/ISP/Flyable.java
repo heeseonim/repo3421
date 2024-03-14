@@ -1,5 +1,5 @@
 package ISP;
 
 public interface Flyable {
-    void fly();
+    public void fly();
 }
