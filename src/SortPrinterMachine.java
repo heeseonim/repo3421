@@ -35,25 +35,12 @@ class SelectionSort implements SortType {
         }
     }
 }
-
-interface Printer {
-    void insert(ArrayList<Integer> lst);
-
-    void show();
-}
-
-class SortPrinter implements Printer {
+class SortPrinter {
     ArrayList<Integer> lst;
     SortType st;
 
-    @Override
     public void insert(ArrayList<Integer> lst) {
         this.lst = lst;
-    }
-
-    @Override
-    public void show() {
-        System.out.println(Arrays.toString(lst.toArray()));
     }
 
     public void selection(SortType st) { // Sort 할당
@@ -62,6 +49,10 @@ class SortPrinter implements Printer {
 
     public void run() { // Sort run 함수 호출
         st.run(lst);
+    }
+
+    public void show() {
+        System.out.println(Arrays.toString(lst.toArray()));
     }
 }
 
